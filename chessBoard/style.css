@@ -1,0 +1,85 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #2e2e2e;
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+h2 {
+    margin-bottom: 5px;
+}
+
+#turn {
+    margin-bottom: 15px;
+    font-size: 18px;
+}
+
+/* Wooden Table Frame */
+#board {
+    display: grid;
+    grid-template-columns: repeat(8, 75px);
+    grid-template-rows: repeat(8, 75px);
+    border: 15px solid #5c3a21;
+    background: #8b5a2b;
+    box-shadow: 0 0 30px rgba(0,0,0,0.7);
+}
+
+/* Squares */
+.square {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 42px;
+    cursor: pointer;
+    transition: 0.2s ease;
+    border: 1px solid rgba(0,0,0,0.3);
+}
+
+.white {
+    background-color: #f0d9b5;
+}
+
+.black {
+    background-color: #b58863;
+}
+
+.square:hover {
+    transform: scale(1.05);
+}
+
+/* Selected */
+.selected {
+    box-shadow: inset 0 0 0 4px yellow;
+}
+
+/* Valid move */
+.move {
+    background-color: #7dd87d !important;
+}
+
+/* Capture */
+.capture {
+    background-color: #ff6b6b !important;
+}
+
+/* WHITE PIECES */
+.white-piece {
+    color: #ffffff;
+    text-shadow: 0 0 8px rgba(255,255,255,0.8);
+}
+
+/* BLACK PIECES */
+.black-piece {
+    color: #111111;
+    text-shadow: 0 0 6px rgba(0,0,0,0.7);
+}
+
+.square span {
+    transition: transform 0.2s ease;
+}
+
+.square:hover span {
+    transform: scale(1.15);
+}
