@@ -1,0 +1,64 @@
+body {
+    margin: 0;
+    height: 100vh;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    color: white;
+    transition: 0.4s ease;
+    overflow: hidden;
+}
+
+/* MOVE CONTENT UP */
+.main {
+    text-align: center;
+    transform: translateY(-60px);  /* 👈 upar shift */
+}
+
+#heroText {
+    font-size: 80px;
+    letter-spacing: 10px;
+    margin-bottom: 20px;
+    transition: 0.4s ease;
+}
+
+#clock {
+    font-size: 190px;
+    font-weight: bold;
+    letter-spacing: 6px;
+    transition: 0.4s ease;
+}
+
+/* TOP RIGHT GLASS PANEL */
+.controls {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    background: rgba(255,255,255,0.2);
+    backdrop-filter: blur(8px);
+    padding: 15px;
+    border-radius: 15px;
+
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+button {
+    padding: 6px 10px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+input[type="color"] {
+    display: block;
+    margin: 5px 0 10px 0;
+    width: 60px;
+    height: 35px;
+    border: none;
+    cursor: pointer;
+}
