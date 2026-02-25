@@ -16,14 +16,22 @@ function addExpense() {
   const category = document.getElementById("category").value;
   const date = document.getElementById("date").value;
 
-  if (!amount || !date) {
-    alert("Please enter valid data");
-    return;
-  }
+  if (!amount || !date) return alert("Enter valid data");
 
   expenses.push({ amount, category, date });
   saveData();
   alert("Expense Added");
+}
+
+function deleteExpense(index) {
+  expenses.splice(index, 1);
+  saveData();
+  location.reload();
+}
+
+function clearAll() {
+  localStorage.clear();
+  location.reload();
 }
 
 if (document.getElementById("pieChart")) {
@@ -32,8 +40,7 @@ if (document.getElementById("pieChart")) {
 
   document.getElementById("totalAmount").innerText = "₹" + total;
   document.getElementById("budgetAmount").innerText = "₹" + budget;
-  document.getElementById("remainingAmount").innerText =
-    "₹" + (budget - total);
+  document.getElementById("remainingAmount").innerText = "₹" + (budget - total);
 
   let categoryTotals = {};
   expenses.forEach(e => {
@@ -47,13 +54,10 @@ if (document.getElementById("pieChart")) {
       labels: Object.keys(categoryTotals),
       datasets: [{
         data: Object.values(categoryTotals),
-        backgroundColor: ["#8b5cf6","#6366f1","#3b82f6","#06b6d4"]
+        backgroundColor: ["#2563eb","#60a5fa","#93c5fd","#bfdbfe"]
       }]
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false
-    }
+    options: { responsive: true, maintainAspectRatio: false }
   });
 
   new Chart(document.getElementById("barChart"), {
@@ -63,22 +67,20 @@ if (document.getElementById("pieChart")) {
       datasets: [{
         label: "Spending by Category",
         data: Object.values(categoryTotals),
-        backgroundColor: "#8b5cf6"
+        backgroundColor: "#2563eb"
       }]
     },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false
-    }
+    options: { responsive: true, maintainAspectRatio: false }
   });
 
   const tableBody = document.querySelector("#expenseTable tbody");
-  expenses.slice(-5).forEach(e => {
+  expenses.forEach((e, index) => {
     tableBody.innerHTML += `
       <tr>
         <td>₹${e.amount}</td>
         <td>${e.category}</td>
         <td>${e.date}</td>
+        <td><button onclick="deleteExpense(${index})">Delete</button></td>
       </tr>
     `;
   });
@@ -86,13 +88,9 @@ if (document.getElementById("pieChart")) {
 
 if (document.getElementById("insightsBox")) {
   const total = expenses.reduce((sum, e) => sum + e.amount, 0);
-  let insights = "";
+  let message = total > budget 
+    ? "⚠ You exceeded your monthly budget."
+    : "✓ Your spending is within the budget.";
 
-  if (total === 0) {
-    insights = "No data available.";
-  } else {
-    insights = "Your spending data has been analyzed successfully.";
-  }
-
-  document.getElementById("insightsBox").innerHTML = insights;
+  document.getElementById("insightsBox").innerHTML = message;
 }
