@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Add Expense</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h2>ExpensePro</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="add.html">Add Expense</a>
+    <a href="insights.html">Insights</a>
+  </aside>
+
+  <main class="main">
+    <h1>Add Expense</h1>
+
+    <div class="form-box">
+      <input type="number" id="amount" placeholder="Enter Amount">
+
+      <select id="category">
+        <option>Food</option>
+        <option>Travel</option>
+        <option>Study</option>
+        <option>Entertainment</option>
+      </select>
+
+      <input type="date" id="date">
+
+      <button onclick="addExpense()">Add Expense</button>
+
+      <hr>
+
+      <h3>Set Monthly Budget</h3>
+      <input type="number" id="budget" placeholder="Enter Budget">
+      <button onclick="setBudget()">Save Budget</button>
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

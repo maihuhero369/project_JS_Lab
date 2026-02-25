@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ExpensePro Dashboard</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<div class="layout">
+
+  <aside class="sidebar">
+    <h2>ExpensePro</h2>
+    <a href="index.html">Dashboard</a>
+    <a href="add.html">Add Expense</a>
+    <a href="insights.html">Insights</a>
+  </aside>
+
+  <main class="main">
+
+    <header class="topbar">
+      <h1>Dashboard</h1>
+    </header>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Total Expense</h3>
+        <p id="totalAmount">₹0</p>
+      </div>
+      <div class="card">
+        <h3>Budget</h3>
+        <p id="budgetAmount">₹0</p>
+      </div>
+      <div class="card">
+        <h3>Remaining</h3>
+        <p id="remainingAmount">₹0</p>
+      </div>
+    </div>
+
+    <div class="charts">
+      <div class="chart-box">
+        <canvas id="pieChart"></canvas>
+      </div>
+      <div class="chart-box">
+        <canvas id="barChart"></canvas>
+      </div>
+    </div>
+
+    <div class="table-container">
+      <h2>Recent Expenses</h2>
+      <table id="expenseTable">
+        <thead>
+          <tr>
+            <th>Amount</th>
+            <th>Category</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+
+  </main>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
