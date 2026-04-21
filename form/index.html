@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Student Form</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+<div class="container">
+    <h2>Student Registration</h2>
+
+    <form id="myForm">
+        <div class="row">
+            <input type="text" id="name" placeholder="Full Name">
+            <input type="email" id="email" placeholder="Email">
+        </div>
+
+        <div class="row">
+            <input type="number" id="age" placeholder="Age">
+            <input type="tel" id="phone" placeholder="Phone Number">
+        </div>
+
+        <div class="row">
+            <select id="gender">
+                <option value="">Gender</option>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <select id="course">
+                <option value="">Course</option>
+                <option>B.Tech</option>
+                <option>BCA</option>
+                <option>MCA</option>
+            </select>
+        </div>
+
+        <textarea id="address" placeholder="Address"></textarea>
+
+        <button type="submit">Register</button>
+    </form>
+</div>
+</body>
+</html>
